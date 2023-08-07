@@ -1,0 +1,195 @@
+<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<title>ЦСЯ.Воскресная школа г.Атырау</title>
+</head>
+<body class="body">
+
+	<header class="header">
+		<div class="container">
+			<div class="menu">
+				<a href="#" class="logo">
+					<div class="logo_header">
+						<img src="img/logo.png" alt="Logo">
+						<p class="logo_title">Церковное чтение</p>
+					</div>
+					<p class="logo_name">Воскресная школа при кафедральном соборе Успения Божией Матери города Атырау</p>
+				</a>
+
+				<ul class="navi">
+					<li>
+						<a href="index.html">Главная</a>
+					</li>
+					<li>
+						<a href="test.html">Тестирование</a>
+					</li>
+					<li>
+						<a href="#">Приход</a>
+					</li>
+					<li>
+						<a href="#">О проекте</a>
+					</li>
+					<li>
+						<a href="#">Контакты</a>
+					</li>
+				</ul>						
+		</div>
+	</header>
+	
+	<section class="test">
+		<form name="quiz" action="javascript:check();" class="quizform">
+			<div class="container">
+				<h2>Приступим к тесту!
+				</h2>
+				<div class="question"	>
+					<h3>Из каких частей состоит православный храм (типовой каноничный)?
+					</h3>
+					<div class="answer">
+						<input name="q1" value="value_false" type="radio" /> Колокольня, просфорня, ризница
+					</div>
+					<div class="answer">
+						<input name="q1" value="value_true" type="radio" /> Алтарь, собственно храм, притвор
+					</div>
+					<div class="answer">
+						<input name="q1" value="value_false" type="radio" /> Солея, два притвора, ризница
+					</div>
+				</div>
+				<div class="question"	>
+					<h3>Возвышенная часть храма, отделённая особой перегородкой с иконами (прообразом её в ветхозаветном храме была Святая Святых), называется:
+					</h3>
+					<div class="answer">
+						<input name="q2" value="value_true" type="radio" /> Алтарь
+					</div>
+					<div class="answer">
+						<input name="q2" value="value_false" type="radio" /> Притвор
+					</div>
+					<div class="answer">
+						<input name="q2" value="value_false" type="radio" /> Солея
+					</div>
+				</div>
+				<div class="question"	>
+					<h3>Выступающая в сторону  от алтаря часть солеи, с которой священнослужители произносят проповедь
+					</h3>
+					<div class="answer">
+						<input name="q3" value="value_false" type="radio" /> Клирос
+					</div>
+					<div class="answer">
+						<input name="q3" value="value_false" type="radio" /> Притвор
+					</div>
+					<div class="answer">
+						<input name="q3" value="value_true" type="radio" /> Амвон
+					</div>
+				</div>
+				<input class="btn" value="Узнать результат" type="submit" />
+				<!-- <a href="#" class="btn">
+					Узнать результат
+				</a> -->			
+			</div>
+		</form>
+	</section>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="footer_text">
+				2020 © ermakov.web
+			</p>			
+		</div>
+	</footer>
+	<script type="text/javascript">
+
+		var result;
+			    
+		function check()
+			 
+		{
+			 
+			var question;
+			var value_false;
+			var value_true;
+			       
+			       
+			question = 1;
+			value_false = 0;
+			value_true = 0;
+			       
+			       
+			result = "";
+			 
+			var choice;
+			       
+			for (question = 1; question <= 3; question++) 
+			{
+			       
+				var q = document.forms['quiz'].elements['q'+question];
+			 
+				for (var i = 0; i < q.length; i++) 
+				{
+					if (q[i].checked) 
+					{
+						choice = q[i].value;
+					}
+				}
+			 
+				if (choice == "value_false") 
+				{
+					value_false++;
+				}
+			
+				if (choice == "value_true") 
+				{
+					value_true++;
+				}
+			 
+			 
+			}
+			 
+			if (value_true == 0) 
+			{
+			 
+				// Нет правильных ответов
+				result = "ocenka2";
+			}
+			 
+			else if (value_true == 1) 
+			{
+			 
+				// Один правильный ответ
+				result = "ocenka3";
+			}
+			 
+			else if (value_true == 2) 
+			{
+			 
+				// Два правильных ответа
+				result = "ocenka4";
+			}
+			 
+			else if (value_true == 3) 
+			{
+			 
+				// Три правильных ответа
+				result = "ocenka5";
+			}
+			 
+			 
+			else 
+			{
+				result = "404";
+			}
+			 
+			window.location = result + '.html';
+	 
+		}
+	</script>
+	<!-- <script src="js/main.js"></script> -->
+	
+</body>
+</html>
